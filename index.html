@@ -1,45 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>zmateusz</title>
+---
+layout: default
+---
 
-  <style type="text/css">
-    body {
-      margin: 0 0;
-      background: #DCDDD8;
-    }
-    p {
-      margin: 0;
-      padding-top: 60px;
-      font-size: 60px;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #DCDDD8;
-    }
-    .header {
-      height: 30px;
-      background: #D74B4B;
-    }
-    .main {
-      margin-bottom: 100px;
-      height: 200px;
-      text-align: center;
-      background: #475F77;
-    }
-    .image {
-      margin: 0 auto;
-      width: 200px;
-      height: 280px;
-      border-bottom: 10px solid #354B5E;
-    }
-  </style>
-</head>
-<body>
-  <div class="header"></div>
-  <div class="main">
-    <p>Soon<sup>TM</sup></p>
-  </div>
-  <div class="image">
-    <img src="http://media0.giphy.com/media/Qq6lsVCwX8Ksg/200w.gif">
-  </div>
-</body>
-</html>
+<div class="home">
+
+  <h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
